@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #081b29;
+}
+
+.cops {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: transparent;
+    border: 2px solid #8fe;
+    overflow: hidden;
+    box-shadow: 0 0 25px #0ef;
+}
+
+.cops .form-box {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+.cops .form-box.login {
+    left: 0;
+    padding: 0 60px 0 40px;
+
+}
+
+.cops,
+.form-box.login,
+.animation {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: 0.7s ease;
+    transition-delay: calc(0.1s * var(--j));
+}
+
+.cops.active .form-box.login .animation {
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.cops .form-box.registre {
+    right: 0;
+    padding: 0 40px 0 60px;
+    pointer-events: none;
+}
+.cops.active .form-box.registre {
+    pointer-events: auto;
+}
+.cops .form-box.registre .animation{
+    transform: translateX(120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: 0.7s ease;
+    transition-delay: calc(0.1s * var(--j));
+}
+.cops.active .form-box.registre .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.form-box h2 {
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+}
+
+.form-box .input-box {
+    position: relative;
+    width: 100%;
+    height: 30%;
+    margin: 25px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #fff;
+    padding-right: 23px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.5s;
+
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    border-bottom-color: rgb(53, 158, 165);
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+    color: rgb(53, 158, 165);
+}
+
+.input-box i {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    color: #fff;
+    transform: rotateY(-50%);
+}
+
+.input-box input:focus~i,
+.input-box input:valid~i {
+    color: rgb(53, 158, 165);
+}
+
+.btn {
+    position: relative;
+    width: 100%;
+    height: 30%;
+    background: transparent;
+    border: 2px solid #0fe;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 300%;
+    top: -100%;
+    left: 0;
+    background: linear-gradient(#081b29, #0ef, #081b29, #0ef);
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    top: 0;
+}
+
+.form-box .logreg-link {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0 10px;
+}
+
+.logreg-link p a {
+    color: #0fe;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logreg-link p a:hover {
+    text-decoration: underline;
+}
+
+.cops .info-text {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cops .info-text.login {
+    right: 0;
+    text-align: right;
+    padding: 0 40px 60px 150px;
+
+}
+
+.cops,
+.info-text.login,
+.animation {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: 0.7s ease;
+    transition-delay: calc(0.1s * var(--j));
+}
+
+.cops.active .info-text.login .animation {
+    transform: translateX(120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.cops .info-text.registre {
+    left: 0;
+    text-align: left;
+    padding: 0 150px 60px 40px;
+    pointer-events: none;
+}
+.cops.active .info-text.registre{
+    pointer-events: auto;
+}
+.cops .info-text.registre .animation{
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: 0.7s ease;
+    transition-delay: calc(0.1s * var(--j));
+}
+.cops.active .info-text.registre .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.info-text h2 {
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.info-text p {
+    font-size: 16px;
+    color: #fff;
+}
+
+.cops .bg-animate {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 900px;
+    height: 600px;
+    background: linear-gradient(45deg, #081b29, #0ef);
+    border-bottom: 3px solid #0ef;
+    transform: rotate(10deg) skewY(40deg);
+    transform-origin: bottom right;
+    transition: 1.5s ease;
+    transition-delay: 1.6s;
+
+}
+
+.cops.active .bg-animate {
+    transform: rotate(0deg) skewY(0deg);
+    transition-delay: 0.5s;
+}
+
+.cops .bg-animate2 {
+    position: absolute;
+    top: 100%;
+    left: 250px;
+    width: 900px;
+    height: 700px;
+    background: #081b29;
+    border-top: 3px solid #0ef;
+    transform: rotate(0deg) skewY(0deg);
+    transform-origin: bottom left;
+    transition: 1.5s ease;
+    transition-delay: 0.5s;
+}
+.cops.active .bg-animate2{
+    transform: rotate(-11deg) skewY(-41deg);
+    transition-delay: 0.5s;
+}
+.formulaire h2{
+    color: #fff;
+    text-align: center;
+    padding-top: 20px;
+}
+.formulaire .form{
+    display: flex;
+}
+.formulaire .display1{
+    width: 48%;
+    margin: 20px;
+}
+.display1 .input-box{
+    margin: 20px;
+    height: 50px;
+}
+.display1 .btn{
+    height: 50px;
+}
+.login1{
+    margin-left: 40%;
+    color: #8fe;
+}
+.login1 a{
+    text-decoration: none;
+    color: #0ef;
+}
